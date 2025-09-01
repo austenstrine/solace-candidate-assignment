@@ -1,12 +1,18 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import './globals.css';
+import './fonts/lato.css';
 
-const inter = Inter({ subsets: ["latin"] });
+const mollieGlaston = localFont({
+  src: './fonts/MollieGlaston.ttf',
+  display: 'swap',
+  variable: '--font-mollie-glaston',
+  fallback: ['serif'],
+});
 
 export const metadata: Metadata = {
-  title: "Solace Candidate Assignment",
-  description: "Show us what you got",
+  title: 'Solace Candidate Assignment',
+  description: 'Show us what you got',
 };
 
 export default function RootLayout({
@@ -15,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en' className={mollieGlaston.variable}>
+      <body className='font-lato antialiased'>{children}</body>
     </html>
   );
 }
